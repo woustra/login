@@ -3,8 +3,6 @@ Dingen om aan te passen
 
 Features -- 
 
-*Passwords hashed voordat je ze in de database zet
-
 *Username of email met inloggen
 
 *Bij registratie zowel username als email benodigd
@@ -63,3 +61,8 @@ Roles --
 *EXTRA: challenge voegen we een 3e rol die die moderator is en die ziet meer dan de user maar minder dan de admin en een UBER admin die 
 alles kan
 
+
+
+-- completed -- 
+
+*Passwords hashed voordat je ze in de database zet
