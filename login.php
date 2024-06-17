@@ -5,10 +5,13 @@ include("connection.php");
 include("functions.php");
 
 
+
+
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
     $user_name = $_POST['user_name'];
     $password = $_POST['password'];
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 }
 
 if(!empty($user_name) && !empty($password))
@@ -25,7 +28,7 @@ if(!empty($user_name) && !empty($password))
             {
                 $user_data = mysqli_fetch_assoc($result);
                 
-                if($user_data['password'] === $password)
+                if (password_verify($password, $hashed_password))
                 {
                     $_SESSION['user_id'] = $user_data['user_id'];
                     header("location: index.php");
