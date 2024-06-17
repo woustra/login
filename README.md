@@ -62,7 +62,6 @@ Roles --
 alles kan
 
 
-
 -- completed -- 
 
 *Passwords hashed voordat je ze in de database zet
