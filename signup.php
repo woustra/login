@@ -4,17 +4,20 @@ session_start();
     include("connection.php");
     include("functions.php");
 
+    
+
 
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
         $user_name = $_POST['user_name'];
         $password = $_POST['password'];
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     }
 
     if(!empty($user_name) && !empty($password))
     {
         $user_id = random_num(20);
-        $query = "insert into users (user_id,user_name,password) values ('$user_id','$user_name','$password')";
+        $query = "insert into users (user_id,user_name,password) values ('$user_id','$user_name','$hashed_password')";
 
         mysqli_query($con, $query);
 
