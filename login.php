@@ -28,7 +28,7 @@ if(!empty($user_name) && !empty($password))
             {
                 $user_data = mysqli_fetch_assoc($result);
                 
-                if (password_verify($password, $hashed_password))
+                if (password_verify($user_name, $hashed_password))
                 {
                     $_SESSION['user_id'] = $user_data['user_id'];
                     header("location: index.php");
@@ -37,11 +37,11 @@ if(!empty($user_name) && !empty($password))
                 }
             }
     }
-    echo "wrong username or password";
     
-}else
-{
-    echo "fill out both fields";
+    
+    
+}else{
+    echo "fill in both fields";
 }
 
 ?>
@@ -84,8 +84,8 @@ if(!empty($user_name) && !empty($password))
 
         <form method="post">
             <div style="font-size: 20px;margin: 10px;color: white;">login</div>
-            <input id="text" type="text" name="user_name"><br><br>
-            <input id="text" type="password" name="password"><br><br>
+            <input id="text" type="text" name="user_name" placeholder="user name"><br><br>
+            <input id="text" type="password" name="password" placeholder="password"><br><br>
             <input id="button" type="submit" value="Login"><br><br>
 
             <a href="signup.php">signup</a><br><br>
