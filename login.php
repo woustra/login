@@ -28,7 +28,7 @@ if(!empty($user_name) && !empty($password))
             {
                 $user_data = mysqli_fetch_assoc($result);
                 
-                if (password_verify($password, $hashed_password))
+                if (password_verify($user_name, $hashed_password))
                 {
                     $_SESSION['user_id'] = $user_data['user_id'];
                     header("location: index.php");
