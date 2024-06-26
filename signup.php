@@ -9,6 +9,7 @@ session_start();
 
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
+        $email = $_POST['email'];
         $user_name = $_POST['user_name'];
         $password = $_POST['password'];
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -17,7 +18,7 @@ session_start();
     if(!empty($user_name) && !empty($password))
     {
         $user_id = random_num(20);
-        $query = "insert into users (user_id,user_name,password) values ('$user_id','$user_name','$hashed_password')";
+        $query = "insert into users (user_id,email,user_name,password) values ('$user_id','$email','$user_name','$hashed_password')";
 
         mysqli_query($con, $query);
 
@@ -68,9 +69,10 @@ session_start();
 
         <form method="post">
             <div style="font-size: 20px;margin: 10px;color: white;">signup</div>
-            <input id="text" type="text" name="user_name"><br><br>
-            <input id="text" type="password" name="password"><br><br>
-            <input id="button" type="submit" value="Login"><br><br>
+            <input id="text" type="email" name="email" placeholder="email"><br><br>
+            <input id="text" type="text" name="user_name" placeholder="user name"><br><br>
+            <input id="text" type="password" name="password" placeholder="password"><br><br>
+            <input id="button" type="submit" value="sign up"><br><br>
 
             <a href="login.php">login</a><br><br>
         </form>
